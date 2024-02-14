@@ -24,8 +24,10 @@ const updatedUser=await  User.findByIdAndUpdate(req.params.id ,{
         email:req.body.email,
         password:req.body.password,
         avatar:req.body.avatar
-    }
-},{new:true})
+    },
+},
+{new:true}
+);
 
 const {password,...rest}=updatedUser._doc;
 
@@ -35,4 +37,4 @@ res.status(200).json(rest);
     } catch (error) {
         next(error);
     }
-}
+};
